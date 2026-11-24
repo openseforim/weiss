@@ -1,0 +1,33 @@
+{
+  "title": "I. H. Weiss, Dor Dor ve-Dorshav: reading edition with English translation",
+  "upload_type": "publication",
+  "publication_type": "book",
+  "description": "<p>The classic history of the Oral Law, from the Bible to the sixteenth century, with an English translation paragraph by paragraph.</p><p>Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan.</p><p>Read online: <a href=\"https://openseforim.org/weiss/\">https://openseforim.org/weiss/</a></p>",
+  "creators": [
+    {
+      "name": "Brand, Ezra"
+    }
+  ],
+  "license": "cc-by-sa-4.0",
+  "access_right": "open",
+  "keywords": [
+    "Judaica",
+    "Hebrew",
+    "digital humanities",
+    "translation",
+    "digital edition"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "identifier": "https://openseforim.org/weiss/",
+      "relation": "isDocumentedBy",
+      "resource_type": "publication-other"
+    },
+    {
+      "identifier": "https://www.daat.ac.il/daat/vl/tohen.asp?id=349",
+      "relation": "isDerivedFrom",
+      "resource_type": "publication-book"
+    }
+  ]
+}

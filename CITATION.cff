@@ -5,14 +5,13 @@ type: dataset
 authors:
   - family-names: Brand
     given-names: Ezra
-abstract: "The classic history of the Oral Law, with an English translation paragraph by paragraph. Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan."
+abstract: "The classic history of the Oral Law, from the Bible to the sixteenth century, with an English translation paragraph by paragraph. Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan."
 license: CC-BY-SA-4.0
 url: "https://openseforim.org/weiss/"
 repository-code: "https://github.com/openseforim/weiss"
 keywords:
   - "Judaica"
   - "Hebrew"
-  - "Oral Law"
-  - "history of halakhah"
+  - "digital humanities"
   - "translation"
   - "digital edition"
