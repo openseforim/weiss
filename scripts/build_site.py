@@ -127,7 +127,7 @@ def fmt_he(text, stem_for_calls):
 def fmt_en(text):
     text = e(text, quote=False)
     text = re.sub(r"\[([^\]]+)\]", r'<span class="ref">[\1]</span>', text)
-    text = re.sub(r"\{(\d{1,2})\}", r'<sup class="fn"><a href="#fn-\1">\1</a></sup>', text)
+    text = re.sub(r"\{(\d{1,2})\}", r'<sup class="fn" id="fnref-\1"><a href="#fn-\1">\1</a></sup>', text)
     return re.sub(r"\s*⚠(\d+)", r' <a class="warn" href="#n\1" id="r\1" title="uncertain rendering">⚠\1</a>', text)
 
 
@@ -150,8 +150,8 @@ def part_page(num):
     fnrows = []
     for (stem, n, h), x in zip(notes, fn_en):
         x = re.sub(r"^\d+\)\s*", "", x)
-        fnrows.append(f'<div class="row fnrow" id="fn-{n}"><span class="ln">{n}</span>'
-                      f'<p class="en">{fmt_en(x)}</p><p class="he" lang="he" dir="rtl">{e(h, quote=False)}'
+        fnrows.append(f'<div class="row fnrow" id="fn-{n}"><a class="ln back" href="#fnref-{n}" title="Back to the text">{n}<span aria-hidden="true"> ↩</span></a>'
+                      f'<p class="en">{fmt_en(x)} <a class="fnback" href="#fnref-{n}">↩ back to the text</a></p><p class="he" lang="he" dir="rtl">{e(h, quote=False)}'
                       f' <span class="fnpage">(p. {page_label(stem)})</span></p></div>')
     marks = set(re.findall(r"⚠(\d+)", " ".join(en + fn_en)))
     if marks - set(warn):

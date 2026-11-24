@@ -107,3 +107,5 @@ tr.done td:first-child a { font-weight: 600; }
 .row.fnrow p { font-size: .9rem; }
 .fnpage { font: .72rem system-ui, sans-serif; color: var(--muted); }
 sup.fn a { text-decoration: none; font: .7rem system-ui, sans-serif; padding: 0 1px; }
+.fnback { font: .8rem system-ui, sans-serif; color: var(--muted); white-space: nowrap; }
+sup.fn { scroll-margin-top: 5rem; }
