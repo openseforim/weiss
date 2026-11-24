@@ -142,15 +142,20 @@ def part_page(num):
     for stem in stems:
         if not (DOCS / "scans" / f"{stem}.jpg").exists():
             sys.exit(f"part {num}: no page image docs/scans/{stem}.jpg; run scripts/make_scans.py")
-    rows = []
+    rows, cur = [], None
     for i, ((kind, h), x) in enumerate(zip(units, en), 1):
         cls = "row head" if kind == "h" else "row"
-        rows.append(f'<div class="{cls}" id="u{i}"><a class="ln" href="#u{i}">{i}</a>'
+        starts = [m.group(1) for m in TOK.finditer(h)]
+        pg = ([cur] if cur and not h.startswith("{page:") else []) + starts
+        cur = starts[-1] if starts else cur
+        nums = [page_label(x) for x in pg]
+        lab = f"row {i}, " + (f"p. {nums[0]}" if len(nums) == 1 else f"pp. {nums[0]}–{nums[-1]}")
+        rows.append(f'<div class="{cls}" id="u{i}" data-label="{lab}"><a class="ln" href="#u{i}">{i}</a>'
                     f'<p class="en">{fmt_en(x)}</p><p class="he" lang="he" dir="rtl">{fmt_he(h, None)}</p></div>')
     fnrows = []
     for (stem, n, h), x in zip(notes, fn_en):
         x = re.sub(r"^\d+\)\s*", "", x)
-        fnrows.append(f'<div class="row fnrow" id="fn-{n}"><a class="ln back" href="#fnref-{n}" title="Back to the text">{n}<span aria-hidden="true"> ↩</span></a>'
+        fnrows.append(f'<div class="row fnrow" id="fn-{n}" data-label="note {n} (p. {page_label(stem)})"><a class="ln back" href="#fnref-{n}" title="Back to the text">{n}<span aria-hidden="true"> ↩</span></a>'
                       f'<p class="en">{fmt_en(x)} <a class="fnback" href="#fnref-{n}">↩ back to the text</a></p><p class="he" lang="he" dir="rtl">{e(h, quote=False)}'
                       f' <span class="fnpage">(p. {page_label(stem)})</span></p></div>')
     marks = set(re.findall(r"⚠(\d+)", " ".join(en + fn_en)))
