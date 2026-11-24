@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "slug": "weiss",
+  "order": 35,
+  "kind": "translation",
+  "title": "I. H. Weiss, *Dor Dor ve-Dorshav*",
+  "short_title": "*Dor Dor ve-Dorshav*",
+  "title_he": "דור דור ודורשיו",
+  "author": "Isaac Hirsch Weiss (1815–1905)",
+  "status_label": "In progress · vol. 1, chapter 1 (pilot)",
+  "start": "part-01.html",
+  "start_label": "Book One, chapter 1",
+  "summary": "The classic history of the Oral Law, from the Bible to the sixteenth century, with an English translation paragraph by paragraph.",
+  "base_edition": {
+    "label": "Vienna 1871–91; Daat scan",
+    "scan_url": "https://www.daat.ac.il/daat/vl/tohen.asp?id=349"
+  },
+  "method": "Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan.",
+  "cite": "Isaac Hirsch Weiss, *Dor Dor ve-Dorshav*, Hebrew text with English translation, ed. Ezra Brand. Open Seforim",
+  "url": "https://openseforim.org/weiss/",
+  "repo": "https://github.com/openseforim/weiss",
+  "licence": {
+    "name": "CC BY-SA 4.0",
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+  }
+}

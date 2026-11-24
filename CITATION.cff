@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this edition, please cite it as below."
+title: "I. H. Weiss, Dor Dor ve-Dorshav: reading edition with English translation"
+type: dataset
+authors:
+  - family-names: Brand
+    given-names: Ezra
+abstract: "The classic history of the Oral Law, with an English translation paragraph by paragraph. Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan."
+license: CC-BY-SA-4.0
+url: "https://openseforim.org/weiss/"
+repository-code: "https://github.com/openseforim/weiss"
+keywords:
+  - "Judaica"
+  - "Hebrew"
+  - "Oral Law"
+  - "history of halakhah"
+  - "translation"
+  - "digital edition"

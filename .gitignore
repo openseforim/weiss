@@ -1,0 +1,9 @@
+# Daat page images, line images, OCR runs and experiments (large or reproducible)
+data/pages/
+data/pilot_pages/
+data/pilot/lines/
+data/v1/
+data/test/
+data/view/
+logs/
+__pycache__/
