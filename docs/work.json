@@ -19,6 +19,7 @@
   "cite": "Isaac Hirsch Weiss, *Dor Dor ve-Dorshav*, Hebrew text with English translation, ed. Ezra Brand. Open Seforim",
   "url": "https://openseforim.org/weiss/",
   "repo": "https://github.com/openseforim/weiss",
+  "doi": "10.5281/zenodo.24506038",
   "licence": {
     "name": "CC BY-SA 4.0",
     "url": "https://creativecommons.org/licenses/by-sa/4.0/"
