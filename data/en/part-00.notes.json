@@ -1,0 +1,50 @@
+{
+  "1": {
+    "he": "שורש הזוגות",
+    "note": "Print reads like הזונות (ג and נ look alike in this type); read הזוגות, \"the Pairs\" (Zugot), which fits the context of Jehoshaphat's court."
+  },
+  "2": {
+    "he": "להקימה",
+    "note": "Print damaged (לה-ימה); read להקימה."
+  },
+  "3": {
+    "he": "יוסף בן יוחנן",
+    "note": "Printed יוסף (Joseph); the Mishnah names him Yose ben Yoḥanan. Kept the sense; Hebrew kept as printed."
+  },
+  "4": {
+    "he": "המלכה שלמינון",
+    "note": "Name as printed (שלמינון); rendered as Shelamzion (Salome Alexandra)."
+  },
+  "5": {
+    "he": "הסבה לזה",
+    "note": "Print reads like הסכה (ב and כ alike); read הסבה, \"the reason\"."
+  },
+  "6": {
+    "he": "ובנוי מדרש",
+    "note": "First word unclear in the print (ובנוי / וכנוי); read as כנוי, \"terms, names\"."
+  },
+  "7": {
+    "he": "משפט המדרש וכחו",
+    "note": "Print unclear (ובהו / וכחו); read וכחו, \"its force\"."
+  },
+  "8": {
+    "he": "כונת התורה",
+    "note": "Print reads like בונה התורה; read כונת התורה, \"the intent of the Torah\"."
+  },
+  "9": {
+    "he": "דיני גזלות",
+    "note": "Print reads like גולות (ז and ו alike); read גזלות, \"robbery\"."
+  },
+  "10": {
+    "he": "רשיון ב\"ד מעוררים שונים",
+    "note": "Wording as printed; sense unclear. Rendered literally."
+  },
+  "11": {
+    "he": "דבור",
+    "note": "Print reads like דביר; read דבור (the Word, Logos), which fits \"its concept\" and \"the Memra of the Targumim\"."
+  },
+  "12": {
+    "he": "הנשמה",
+    "note": "Print reads like הגשמה (ג and נ alike); read הנשמה, \"the soul\", after \"the image of God\"."
+  }
+}

@@ -8,11 +8,55 @@
     "note": "The print has Yosifon, the Hebrew name used in Weiss's time for Josephus as well as for the medieval Sefer Yosippon. The statement that the Sadducees rejected the tradition of the elders is from Josephus, Antiquities 13.297, so the English gives Josephus."
   },
   "3": {
-    "he": "משנת 1889",
-    "note": "The year is printed as 1889 in this scan, but the volume appeared in 1871, and Graetz's commentary on Ecclesiastes, which dates the book to the time of Herod, appeared in 1871. The printed figure is probably a misprint (for 1869?). The English keeps the printed year."
+    "he": "יוסיפון בקדמוניותיו (ח\"ב פ\"א)",
+    "note": "The Cyrus story is in Josephus, Antiquities 11.1.2, not book 2, ch. 1; kept as printed."
   },
   "4": {
+    "he": "הנזכר בישעיה (ה' ב')",
+    "note": "Zechariah son of Jeberechiah is in Isaiah 8:2; the print has ה' ב' (5:2), likely ח read as ה by the printer; kept as printed."
+  },
+  "5": {
+    "he": "יסודות הקיים",
+    "note": "Literally 'foundations of the existing'; rendered as existing practice."
+  },
+  "6": {
+    "he": "כ\"ז ה'",
+    "note": "The verse on keeping God's statutes is Genesis 26:5; the print has 27:5; kept as printed."
+  },
+  "7": {
+    "he": "ובמחתיהם",
+    "note": "Word clear in the scan but unusual; read as from מחיה, 'livelihood'."
+  },
+  "8": {
+    "he": "ניבוהר מן הערביים",
+    "note": "Niebuhr's work on Arabia (probably *Beschreibung von Arabien*); Weiss gives no exact title."
+  },
+  "9": {
+    "he": "(מ\"ב ב')",
+    "note": "Joab at the altar is 1 Kings 2:28–34; מ\"ב may mean Kings, chapter 2 or 2 Kings 2; kept as printed."
+  },
+  "10": {
+    "he": "(דברים י\"ב כ')",
+    "note": "The quoted words 'as I have commanded you' are in Deuteronomy 12:21; kept as printed."
+  },
+  "11": {
+    "he": "שלא ידע כן",
+    "note": "Singular 'he knew' in the print, where the sense requires 'they knew'; translated as printed."
+  },
+  "12": {
+    "he": "משנת 1889",
+    "note": "Graetz's commentary on Ecclesiastes (1871) already dates the book to the time of Herod; the year 1889 refers to a later article in his monthly journal. The scan is of a later printing, which updates such references (it also cites vols. 4 and 5 of this work). The English keeps the printed year."
+  },
+  "13": {
     "he": "(42, 22 . 64, 9. 10)",
     "note": "The figures of these two references are printed left to right inside the Hebrew line and are partly blurred in the scan; the reading 42:22 and 64:9–10 is the most likely one."
+  },
+  "14": {
+    "he": "פ\"ג מ\"א",
+    "note": "the second figure is printed מ\"א; perhaps for a halakhah or section number."
+  },
+  "15": {
+    "he": "פסקא קכ\"ד",
+    "note": "the second letter is unclear in the scan (כ or ב); read as 124."
   }
 }

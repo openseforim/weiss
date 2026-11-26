@@ -23,7 +23,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / "data" / "work"
 EN = ROOT / "data" / "en"
-SPLIT = re.compile(r"^(\{page:[^}]+\}\s*)?(פרק|תקונ|תיקונ|השמטות|מפתח|מפתחות|רשימת השמות|שמות האנשים)")
+SPLIT = re.compile(r"^(\{page:[^}]+\}\s*)?(פרק|תקונ|תיקונ|השמטות|מפתח|מפתחות|רשימת|שמות האנשים)")
 TOKEN = re.compile(r"\{(v\d_\d\d_\d\d):(\d{1,2}|\*)\}")
 
 
@@ -41,6 +41,7 @@ def load_units(vol):
         d["pages"] = u["pages"]
         d["unit"] = u["unit"]
         out.append(d)
+    out.sort(key=lambda d: d["pages"][0])  # the pilot (unit 0) comes after the front matter
     return out
 
 

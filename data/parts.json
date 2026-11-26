@@ -1,0 +1,498 @@
+[
+ {
+  "num": 0,
+  "vol": 1,
+  "start": 0,
+  "end": 105,
+  "first_he": "דור דור ודורשיו",
+  "title": "Title page and contents",
+  "subtitle": "Weiss's table of contents for vol. 1, with his summaries of each chapter",
+  "pages": [
+   "v1_01_02",
+   "v1_01_03",
+   "v1_01_04",
+   "v1_01_05",
+   "v1_01_06"
+  ]
+ },
+ {
+  "num": 1,
+  "vol": 1,
+  "start": 105,
+  "end": 120,
+  "first_he": "ספר ראשון",
+  "title": "Chapter One: The first traces of an oral tradition",
+  "subtitle": "Book One: General introductory inquiries; The first traces of an oral tradition; the period of the Judges up to Samuel; the period of the Kings up to the destruction of the First Temple; the period of the exile up to the return",
+  "pages": [
+   "v1_02_01",
+   "v1_02_02",
+   "v1_02_03",
+   "v1_02_05",
+   "v1_02_06",
+   "v1_02_07",
+   "v1_02_08",
+   "v1_02_09"
+  ]
+ },
+ {
+  "num": 2,
+  "vol": 1,
+  "start": 120,
+  "end": 133,
+  "first_he": "פרק שני",
+  "title": "Chapter Two: The days of the Judges up to the days of Samuel the prophet",
+  "subtitle": "",
+  "pages": [
+   "v1_02_10",
+   "v1_02_11",
+   "v1_02_12",
+   "v1_02_13",
+   "v1_02_14",
+   "v1_02_15",
+   "v1_02_16",
+   "v1_02_17",
+   "v1_02_18",
+   "v1_02_19"
+  ]
+ },
+ {
+  "num": 3,
+  "vol": 1,
+  "start": 133,
+  "end": 142,
+  "first_he": "פרק שלישי",
+  "title": "Chapter Three: From the time of David to the time of the destruction of the Temple",
+  "subtitle": "",
+  "pages": [
+   "v1_02_21",
+   "v1_03_03",
+   "v1_03_05",
+   "v1_03_06",
+   "v1_03_09",
+   "v1_03_11",
+   "v1_03_12"
+  ]
+ },
+ {
+  "num": 4,
+  "vol": 1,
+  "start": 142,
+  "end": 147,
+  "first_he": "פרק רביעי",
+  "title": "Chapter Four: Continuation of the preceding",
+  "subtitle": "",
+  "pages": [
+   "v1_03_12",
+   "v1_03_15",
+   "v1_03_16"
+  ]
+ },
+ {
+  "num": 5,
+  "vol": 1,
+  "start": 147,
+  "end": 153,
+  "first_he": "פרק חמישי",
+  "title": "Chapter Five: The period of the exile until their return from the exile",
+  "subtitle": "",
+  "pages": [
+   "v1_03_19",
+   "v1_03_21",
+   "v1_03_23",
+   "v1_03_24"
+  ]
+ },
+ {
+  "num": 6,
+  "vol": 1,
+  "start": 153,
+  "end": 162,
+  "first_he": "ספר שני",
+  "title": "Chapter Six: The state of Torah study at the beginning of their return from the exile",
+  "subtitle": "Book Two: The state of Torah study at the beginning of their return from the exile; the work of the Scribes in regard to the Hebrew language;; the sayings of the Scribes and their ordinances; the antiquity of the halakhah and its expansion; Simeon the Just, of the remnant of the Men of the Great Assembly",
+  "pages": [
+   "v1_04_01",
+   "v1_04_02",
+   "v1_04_05",
+   "v1_04_08"
+  ]
+ },
+ {
+  "num": 7,
+  "vol": 1,
+  "start": 162,
+  "end": 169,
+  "first_he": "פרק שביעי",
+  "title": "Chapter Seven: The work of the Scribes with regard to the Hebrew language",
+  "subtitle": "",
+  "pages": [
+   "v1_04_08",
+   "v1_04_11",
+   "v1_04_12",
+   "v1_04_13",
+   "v1_04_15"
+  ]
+ },
+ {
+  "num": 8,
+  "vol": 1,
+  "start": 169,
+  "end": 174,
+  "first_he": "פרק שמיני",
+  "title": "Chapter Eight: The sayings of the Scribes and their ordinances",
+  "subtitle": "",
+  "pages": [
+   "v1_04_16",
+   "v1_04_19",
+   "v1_04_22"
+  ]
+ },
+ {
+  "num": 9,
+  "vol": 1,
+  "start": 174,
+  "end": 182,
+  "first_he": "פרק תשיעי",
+  "title": "Chapter Nine: The antiquity of halakhah and its expansion",
+  "subtitle": "",
+  "pages": [
+   "v1_04_22",
+   "v1_05_03",
+   "v1_05_05",
+   "v1_05_07",
+   "v1_05_08",
+   "v1_05_10"
+  ]
+ },
+ {
+  "num": 10,
+  "vol": 1,
+  "start": 182,
+  "end": 194,
+  "first_he": "פרק עשירי",
+  "title": "Chapter Ten: Simeon the Just, one of the last of the Men of the Great Assembly",
+  "subtitle": "",
+  "pages": [
+   "v1_05_12",
+   "v1_05_14",
+   "v1_05_15",
+   "v1_05_16",
+   "v1_05_17",
+   "v1_05_18",
+   "v1_05_19",
+   "v1_05_20",
+   "v1_05_21",
+   "v1_05_22"
+  ]
+ },
+ {
+  "num": 11,
+  "vol": 1,
+  "start": 194,
+  "end": 208,
+  "first_he": "ספר שלישי",
+  "title": "Chapter Eleven: The events after the death of Simeon the Just",
+  "subtitle": "Book Three: The events after the death of Simeon the Just; Yose ben Yoezer and Yosef ben Yoḥanan; Pharisees, Sadducees, Essenes; Yoḥanan the High Priest; Joshua ben Peraḥiah; Nittai of Arbel; Simeon ben Shetaḥ; Judah ben Tabbai; the Kutim [Samaritans]; the victory of the Pharisees; Shemaiah and Avtalyon; the Benei Bathyra",
+  "pages": [
+   "v1_05_23",
+   "v1_06_02",
+   "v1_06_03",
+   "v1_06_04",
+   "v1_06_06",
+   "v1_06_07",
+   "v1_06_09",
+   "v1_06_10"
+  ]
+ },
+ {
+  "num": 12,
+  "vol": 1,
+  "start": 208,
+  "end": 217,
+  "first_he": "פרק שנים עשר",
+  "title": "Chapter Twelve: Yose ben Yoezer of Zeredah, Joseph ben Yoḥanan of Jerusalem",
+  "subtitle": "",
+  "pages": [
+   "v1_06_10",
+   "v1_06_11",
+   "v1_06_12",
+   "v1_06_14",
+   "v1_06_15",
+   "v1_06_16",
+   "v1_06_19"
+  ]
+ },
+ {
+  "num": 13,
+  "vol": 1,
+  "start": 217,
+  "end": 226,
+  "first_he": "פרק שלשה עשר",
+  "title": "Chapter Thirteen: The Pharisees, the Sadducees, and the Essenes",
+  "subtitle": "",
+  "pages": [
+   "v1_06_20",
+   "v1_07_02",
+   "v1_07_03",
+   "v1_07_04",
+   "v1_07_05",
+   "v1_07_06",
+   "v1_07_08"
+  ]
+ },
+ {
+  "num": 14,
+  "vol": 1,
+  "start": 226,
+  "end": 235,
+  "first_he": "פרק ארבעה עשר",
+  "title": "Chapter Fourteen: Yoḥanan the High Priest; the Kutim [Samaritans]; Joshua ben Peraḥiah; Nittai the Arbelite",
+  "subtitle": "",
+  "pages": [
+   "v1_07_09",
+   "v1_07_10",
+   "v1_07_13",
+   "v1_07_14",
+   "v1_07_15",
+   "v1_07_18",
+   "v1_07_19"
+  ]
+ },
+ {
+  "num": 15,
+  "vol": 1,
+  "start": 235,
+  "end": 247,
+  "first_he": "פרק חמשה עשר",
+  "title": "Chapter Fifteen: Simeon ben Shetaḥ; Judah ben Tabbai; the victory of the Pharisees",
+  "subtitle": "",
+  "pages": [
+   "v1_07_20",
+   "v1_08_03",
+   "v1_08_04",
+   "v1_08_05",
+   "v1_08_06",
+   "v1_08_08",
+   "v1_08_09",
+   "v1_08_11",
+   "v1_08_12"
+  ]
+ },
+ {
+  "num": 16,
+  "vol": 1,
+  "start": 247,
+  "end": 256,
+  "first_he": "פרק ששה עשר",
+  "title": "Chapter Sixteen: Shemaiah, Avtalyon. — The Sons of Bathyra",
+  "subtitle": "",
+  "pages": [
+   "v1_08_12",
+   "v1_08_14",
+   "v1_08_15",
+   "v1_08_17",
+   "v1_08_18",
+   "v1_08_19"
+  ]
+ },
+ {
+  "num": 17,
+  "vol": 1,
+  "start": 256,
+  "end": 266,
+  "first_he": "ספר רביעי",
+  "title": "Chapter Seventeen: Hillel the Babylonian, Menaḥem, Shammai",
+  "subtitle": "Book Four: Hillel, Menaḥem, Shammai; their way in the midrash of the Torah and in the halakhah; Akavya ben Mahalalel; the House of Shammai; the House of Hillel; Simeon the son of Hillel; Rabban Gamaliel the Elder and the sages of his generation; Simeon his son and the sages of his generation",
+  "pages": [
+   "v1_08_20",
+   "v1_09_03",
+   "v1_09_04",
+   "v1_09_06",
+   "v1_09_07",
+   "v1_09_08"
+  ]
+ },
+ {
+  "num": 18,
+  "vol": 1,
+  "start": 266,
+  "end": 279,
+  "first_he": "פרק שמונה עשר",
+  "title": "Chapter Eighteen: The ways of midrash and halakhah of Hillel and Shammai. Akavya ben Mahalalel",
+  "subtitle": "",
+  "pages": [
+   "v1_09_10",
+   "v1_09_13",
+   "v1_09_14",
+   "v1_09_15",
+   "v1_09_18",
+   "v1_09_19",
+   "v1_09_20",
+   "v1_09_21",
+   "v1_09_22"
+  ]
+ },
+ {
+  "num": 19,
+  "vol": 1,
+  "start": 279,
+  "end": 287,
+  "first_he": "פרק תשעה עשר",
+  "title": "Chapter Nineteen: The House of Shammai — the House of Hillel",
+  "subtitle": "",
+  "pages": [
+   "v1_09_22",
+   "v1_10_02",
+   "v1_10_05",
+   "v1_10_06",
+   "v1_10_07",
+   "v1_10_09"
+  ]
+ },
+ {
+  "num": 20,
+  "vol": 1,
+  "start": 287,
+  "end": 296,
+  "first_he": "פרק עשרים",
+  "title": "Chapter Twenty: The Patriarchs Simeon, Gamaliel, Simeon, and the sages of their generation",
+  "subtitle": "",
+  "pages": [
+   "v1_10_10",
+   "v1_10_11",
+   "v1_10_13",
+   "v1_10_14",
+   "v1_10_15",
+   "v1_10_16",
+   "v1_10_17"
+  ]
+ },
+ {
+  "num": 21,
+  "vol": 1,
+  "start": 296,
+  "end": 305,
+  "first_he": "ספר חמישי",
+  "title": "Chapter Twenty-One: The state of the Oral Torah at the end of the Temple period",
+  "subtitle": "Book Five: The state of the Oral Torah at the end of the Temple period; midrash aggadah; the external books; the views of the Alexandrian Jews; the principles of beliefs and opinions; the relation of the Oral Torah to the religion of the Messianic Jews and to their writings; the destruction of the Temple",
+  "pages": [
+   "v1_10_18",
+   "v1_11_02",
+   "v1_11_04",
+   "v1_11_06",
+   "v1_11_09"
+  ]
+ },
+ {
+  "num": 22,
+  "vol": 1,
+  "start": 305,
+  "end": 312,
+  "first_he": "פרק שנים ועשרים",
+  "title": "Chapter Twenty-Two: Midrash aggadah; the external books",
+  "subtitle": "",
+  "pages": [
+   "v1_11_10",
+   "v1_11_11",
+   "v1_11_13",
+   "v1_11_16",
+   "v1_11_17"
+  ]
+ },
+ {
+  "num": 23,
+  "vol": 1,
+  "start": 312,
+  "end": 329,
+  "first_he": "פרק עשרים ושלשה",
+  "title": "Chapter Twenty-Three: Beliefs and Opinions of the Jews",
+  "subtitle": "",
+  "pages": [
+   "v1_12_01",
+   "v1_12_02",
+   "v1_12_03",
+   "v1_12_05",
+   "v1_12_06",
+   "v1_12_07",
+   "v1_12_08",
+   "v1_12_09",
+   "v1_12_10",
+   "v1_12_12",
+   "v1_12_14",
+   "v1_12_15"
+  ]
+ },
+ {
+  "num": 24,
+  "vol": 1,
+  "start": 329,
+  "end": 335,
+  "first_he": "פרק עשרים וארבעה.",
+  "title": "Chapter Twenty-Four: The relation of the Oral Torah to the books of the Gospels and their views",
+  "subtitle": "",
+  "pages": [
+   "v1_12_16",
+   "v1_12_18",
+   "v1_12_19",
+   "v1_12_21"
+  ]
+ },
+ {
+  "num": 25,
+  "vol": 1,
+  "start": 335,
+  "end": 342,
+  "first_he": "פרק עשרים וחמשה",
+  "title": "Chapter Twenty-Five: The destruction of the Temple",
+  "subtitle": "",
+  "pages": [
+   "v1_12_22",
+   "v1_12_23",
+   "v1_12_24",
+   "v1_12_25"
+  ]
+ },
+ {
+  "num": 26,
+  "vol": 1,
+  "start": 342,
+  "end": 369,
+  "first_he": "תיקוני איזה טעותי הדפוס מחלק הראשון.",
+  "title": "Corrections of some printing errors in the first part",
+  "subtitle": "",
+  "pages": [
+   "v1_12_25"
+  ]
+ },
+ {
+  "num": 27,
+  "vol": 1,
+  "start": 369,
+  "end": 393,
+  "first_he": "רשימת הענינים",
+  "title": "Index of Subjects",
+  "subtitle": "",
+  "pages": [
+   "v1_13_01",
+   "v1_13_02",
+   "v1_13_03",
+   "v1_13_04",
+   "v1_13_05"
+  ]
+ },
+ {
+  "num": 28,
+  "vol": 1,
+  "start": 393,
+  "end": 415,
+  "first_he": "רשימת השמות",
+  "title": "Index of Names",
+  "subtitle": "",
+  "pages": [
+   "v1_13_06",
+   "v1_13_07",
+   "v1_13_08",
+   "v1_13_09"
+  ]
+ }
+]

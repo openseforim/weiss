@@ -1,0 +1,54 @@
+{
+  "1": {
+    "he": "סלסלה ותרוממך ובין נגידים תושיבך",
+    "note": "The first half is Proverbs 4:8; the second half is Ben Sira 11:1. Weiss gives the whole as Ben Sira, as the sources do."
+  },
+  "2": {
+    "he": "תחת אלון והשני אמר תחת אלה",
+    "note": "Weiss's Hebrew tree names; in the Greek Susanna (54, 58) the trees are a mastic and a holm oak."
+  },
+  "3": {
+    "he": "רא\"ג א. ש. 196",
+    "note": "Read as R. Abraham Geiger, Urschrift (Breslau 1857), p. 196."
+  },
+  "4": {
+    "he": "3)",
+    "note": "The print has no call for this note (the note's number is printed, its call in the text is missing); the call is placed here by the editor, where the note's subject begins."
+  },
+  "5": {
+    "he": "(פרה פ\"ג מ\"ג)",
+    "note": "As printed; the defiling and immersing of the priest is in Mishnah Parah 3:7."
+  },
+  "6": {
+    "he": "(שם מ\"ח)",
+    "note": "As printed; the list of who made red heifers (Simeon the Just two, Yoḥanan the high priest two) is in Mishnah Parah 3:5."
+  },
+  "7": {
+    "he": "המדות הנ[זכרות]",
+    "note": "The scan cuts off the left edge of the first lines of v1_08_09; the lost end letters of nine words (ספ[ר], חקי[ם], אלינ[ו], הפרושי[ם], המדו[ת], הנ[זכרות], הנטיי[ה], הגבו[ל], שו[ה]) are restored in brackets in the Hebrew file. Check against another copy."
+  },
+  "8": {
+    "he": "(גיטין פ\"ח:)",
+    "note": "Printed so; the dispute of the House of Shammai on grounds for divorce stands at Gittin 90a."
+  },
+  "9": {
+    "he": "ובמ\"ת פי\"ח",
+    "note": "Printed so; Megillat Ta'anit has only twelve chapters, so the chapter figure looks wrong (perhaps a different work is meant by the abbreviation)."
+  },
+  "10": {
+    "he": "בבלי חגיגה ט\"ז.",
+    "note": "print damaged; read ט\"ז. (16a); the dispute over who was Nasi stands at Ḥagigah 16b"
+  },
+  "11": {
+    "he": "עיין בח\"ב פ\"ה צד 38",
+    "note": "As printed; vol. 2 of the work appeared only later (1876), so this may point to another part. Check the cross-reference."
+  },
+  "12": {
+    "he": "בסנהדרין (ל\"ו:)",
+    "note": "As printed (the numeral is not fully clear); the story is in Sanhedrin 37b."
+  },
+  "13": {
+    "he": "שינו",
+    "note": "The word is blotted in the scan; read שינו ('changed'); it could also be שוו."
+  }
+}

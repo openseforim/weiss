@@ -7,12 +7,12 @@
   "short_title": "*Dor Dor ve-Dorshav*",
   "title_he": "דור דור ודורשיו",
   "author": "Isaac Hirsch Weiss (1815–1905)",
-  "status_label": "In progress · vol. 1, chapter 1 (pilot)",
+  "status_label": "In progress · vol. 1 of 5 complete",
   "start": "part-01.html",
   "start_label": "Book One, chapter 1",
   "summary": "The classic history of the Oral Law, from the Bible to the sixteenth century, with an English translation paragraph by paragraph.",
   "base_edition": {
-    "label": "Vienna 1871–91; Daat scan",
+    "label": "Daat scan of a printing after 1891 (first edition Vienna 1871–91)",
     "scan_url": "https://www.daat.ac.il/daat/vl/tohen.asp?id=349"
   },
   "method": "Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan.",

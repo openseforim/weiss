@@ -11,12 +11,20 @@ by paragraph, and the scripts that build the reader.
 
 | Part | Pages | Status |
 |---|---|---|
-| 1. Book One, chapter 1 (opening) | vol. 1, pp. 1–3 | 24-Nov-2026. Hebrew checked against the scan line by line; 9 rows and 3 of Weiss's notes translated; 4 uncertain renderings. The part ends mid-sentence at the foot of p. 3. |
-| 2– | rest of vol. 1, vols. 2–5 | OCR only, not checked or translated |
+| 0. Title page and contents | vol. 1, pp. [I]–XIV | 26-Nov-2026 |
+| 1–25. Books One to Five, chapters 1–25 | vol. 1, pp. 1–227 | Pp. 1–3: pilot, 24-Nov-2026. Pp. 4–227: 26-Nov-2026 |
+| 26. Errata | vol. 1, p. 227 | 26-Nov-2026 |
+| 27–28. Index of subjects, index of names | vol. 1, pp. [228]–236 | 26-Nov-2026 |
+| – | vols. 2–5 | OCR only, not checked or translated |
+
+Vol. 1 has 415 rows, 238 notes by Weiss, and 406 uncertain renderings, each marked with ⚠ and a note. Pp. 4–236
+were done by 46 Claude subagents, each with about five pages. Each agent checked the Hebrew against the scan and
+translated its pages, following `scripts/BRIEF.md`. `scripts/w_assemble.py` checks the joins: each row has one Hebrew
+unit, and each footnote call has one note.
 
 ## Sources
 
-- **Base text:** the first edition, Vienna 1871–91, from the Daat virtual library
+- **Base text:** the Daat virtual library scan. Its title page has no imprint (Daat's stamp stands in its place). It is a later printing, not the first edition of 1871: vol. 1 cites vols. 4 and 5 of the work and a journal of 1889. From the Daat virtual library
   ([vol. 1](https://www.daat.ac.il/daat/vl/tohen.asp?id=349)), one PDF per chapter, about 300 dpi. Page files are named
   `vV_FF_PP` (volume, Daat file, page in that file). The hidden text layer of the PDFs (an older OCR) is not used: its
   words are reversed and out of order.
@@ -42,6 +50,12 @@ by paragraph, and the scripts that build the reader.
 - `data/he/vV_FF_PP.txt`: checked Hebrew, one file per printed page (`@ N` printed page number; `#` heading; blank line
   = paragraph break; `---` then the page's notes).
 - `data/en/part-NN.en.txt`, `part-NN.fn.en.txt`, `part-NN.notes.json`: English rows, English notes, uncertain renderings.
+- `data/he/*.txt`: '#+ text' continues a heading that is printed on two lines. A footnote call is `N)` after a word.
+  In the English it is the token `{STEM:N}`. The reader numbers the notes through each part.
+- `data/work/uNNN.json`: the subagent units (Hebrew pages, English rows and notes). `data/parts.json`: the parts (the
+  volume is cut before each chapter heading).
+- `scripts/w_units.py`, `scripts/BRIEF.md`, `scripts/w_assemble.py`, `scripts/w_titles.py`: unit inputs, the agents'
+  brief, the joining and checking of the units, and the part titles. `scripts/wtext.py` reads the Hebrew pages.
 - `scripts/build_site.py`: builds `docs/`. `scripts/make_scans.py`: page images for the scan panel.
 
 ## Licence

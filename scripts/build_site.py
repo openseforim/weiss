@@ -118,7 +118,7 @@ def part_page(part):
     for stem in stems:
         if not (DOCS / "scans" / f"{stem}.jpg").exists():
             sys.exit(f"part {num}: no page image docs/scans/{stem}.jpg; run scripts/make_scans.py")
-    rows, cur = [], None
+    rows, cur = [], vunits[part["start"]]["start"]
     for i, ((kind, h), x) in enumerate(zip(units, en), 1):
         cls = "row head" if kind == "h" else "row"
         starts = [m.group(1) for m in TOK.finditer(h)]
@@ -147,7 +147,7 @@ def part_page(part):
 <h1>{italics(e(title))}</h1>
 <p class="sub">{italics(e(subtitle))}</p>
 <details class="about"><summary>About this text</summary>
-<p class="meta">Vol. {part["vol"]}, pp. {pages} (Vienna 1871). One row is one heading or one paragraph of the print; Weiss's own
+<p class="meta">Vol. {part["vol"]}, pp. {pages} (Daat scan of a printing after 1891). One row is one heading or one paragraph of the print; Weiss's own
 footnotes follow the text, numbered through the part (the print numbers them page by page). Boxes marked "p. N" in the Hebrew show where a printed page begins; they link to the page in
 the Daat scan, and the <b>Scan</b> button at the top shows it beside the text. References in
 <span class="ref">[gray brackets]</span> are the translator's. <a class="warn" href="#notes">⚠</a> marks an uncertain
@@ -156,7 +156,7 @@ rendering. The Hebrew was checked against the scan line by line; spelling and ab
 </header>
 <main class="prose">
 {chr(10).join(rows)}
-<h2 class="fnhead">Weiss's notes</h2>
+{'<h2 class="fnhead">Weiss' + "'" + 's notes</h2>' if fnrows else ''}
 {chr(10).join(fnrows)}
 </main>
 <footer id="notes">
@@ -200,8 +200,8 @@ It is still a standard work, and it has no English translation.</p>
 
 <h2>The Hebrew text</h2>
 <ul>
-<li><b>Base text:</b> the first edition, Vienna 1871–91. Scan: the Daat virtual library
-(<a href="https://www.daat.ac.il/daat/vl/tohen.asp?id=349">vol. 1</a>), about 300 dpi. The hidden text layer of the Daat
+<li><b>Base text:</b> the Daat virtual library
+(<a href="https://www.daat.ac.il/daat/vl/tohen.asp?id=349">vol. 1</a>), about 300 dpi. Its title page has no imprint (Daat's stamp stands in its place). It is a later printing, not the first edition of 1871: vol. 1 cites vols. 4 and 5 of the work (1887–91) and a journal of 1889. The hidden text layer of the Daat
 PDFs (an older OCR) is not used: its words are reversed and out of order.</li>
 <li><b>OCR:</b> Kraken with the PP-OCRv6 model, line by line, then checked against the scan by eye.</li>
 <li><b>Other scans:</b> HathiTrust has the first edition (Columbia and California copies) and the Vilna 1904 and Berlin 1923 printings.</li>
@@ -229,10 +229,10 @@ def work_json():
     w = {"schema": 1, "slug": "weiss", "order": 35, "kind": "translation",
          "title": "I. H. Weiss, *Dor Dor ve-Dorshav*", "short_title": "*Dor Dor ve-Dorshav*", "title_he": "דור דור ודורשיו",
          "author": "Isaac Hirsch Weiss (1815–1905)",
-         "status_label": "In progress · vol. 1, chapter 1 (pilot)",
+         "status_label": "In progress · vol. 1 of 5 complete",
          "start": "part-01.html", "start_label": "Book One, chapter 1",
          "summary": "The classic history of the Oral Law, from the Bible to the sixteenth century, with an English translation paragraph by paragraph.",
-         "base_edition": {"label": "Vienna 1871–91; Daat scan", "scan_url": "https://www.daat.ac.il/daat/vl/tohen.asp?id=349"},
+         "base_edition": {"label": "Daat scan of a printing after 1891 (first edition Vienna 1871–91)", "scan_url": "https://www.daat.ac.il/daat/vl/tohen.asp?id=349"},
          "method": "Paragraph-aligned Hebrew and English; Hebrew from Kraken OCR checked against the scan.",
          "cite": "Isaac Hirsch Weiss, *Dor Dor ve-Dorshav*, Hebrew text with English translation, ed. Ezra Brand. Open Seforim",
          "url": "https://openseforim.org/weiss/", "repo": "https://github.com/openseforim/weiss", "doi": "10.5281/zenodo.24506038",
