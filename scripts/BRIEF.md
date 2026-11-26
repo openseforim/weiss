@@ -48,7 +48,8 @@ second line of footnote 1
   it continues the paragraph of the page before, start with that line directly.
 - An empty line marks a paragraph break (an indented line) inside the page.
 - A heading (book or chapter title, the chapter's summary line, any centered line) is a line of its own starting with
-  `# `, e.g. `# פרק שני`.
+  `# `, e.g. `# פרק שני`. A heading that is printed over two lines (for example a book's summary) gives one row: write
+  its second line with `#+ ` instead of `# `.
 - A footnote call in the body stays as printed, a number and a parenthesis after the word: `ממחלוקת 1)`. A note marked
   with a star stays `*)`.
 - `---` on its own line, then the footnotes, each starting `N)` as printed. If the page's footnote block begins with
