@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 HE = ROOT / "data" / "he"
-CALL = re.compile(r"(?<=[א-ת׳״'\")\]])\s?(\d{1,2}|\*)\)")
+CALL = re.compile(r"(?<=\S)\s?(\d{1,2}|\*)\)")  # a call is kept only if the page has that note
 NOTE = re.compile(r"^(\d{1,2}|\*)\)\s*(.*)")
 
 
@@ -45,12 +45,14 @@ def parse_volume(stems):
             if not s:
                 flush()
                 continue
-            # a number inside an open parenthesis, e.g. '(צד 74)', is a reference, not a footnote call
-            s = CALL.sub(lambda m: m.group(0) if m.string[:m.start()].count("(") > m.string[:m.start()].count(")")
-                         else f"⟦{stem}:{m.group(1)}⟧", s)
+            have = {m.group(1) for m in (NOTE.match(x.strip()) for x in fn) if m}
+            s = CALL.sub(lambda m: f"⟦{stem}:{m.group(1)}⟧" if m.group(1) in have and not (
+                m.string[:m.start()].count("(") > m.string[:m.start()].count(")")) else m.group(0), s)
             tok = f"{{page:{stem}}} " if first else ""
             first = False
-            if s.startswith("#"):
+            if s.startswith("#+") and units and units[-1]["kind"] == "h" and not para:
+                units[-1]["he"] += " " + s[2:].strip()  # '#+ text': a heading that runs over two printed lines
+            elif s.startswith("#"):
                 flush()
                 units.append({"kind": "h", "he": tok + s.lstrip("#").strip(), "start": stem})
             else:

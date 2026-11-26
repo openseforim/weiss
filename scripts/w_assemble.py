@@ -60,7 +60,7 @@ def check_and_align(vol):
         row["en"] = row["en"].rstrip() + " " + text.strip()
         row.setdefault("notes", {}).update({str(int(a) + k): b for a, b in (notes or {}).items()})
     for u in units:
-        prev = units[units.index(u) - 1]
+        prev = next(x for x in units if x["unit"] == 0)  # only unit 2 continues (the pilot)
         if u.get("cont_row"):
             join(prev["rows"][-1], u["cont_row"], u.get("cont_row_notes"))
         if u.get("cont_note"):
@@ -109,7 +109,8 @@ def check_and_align(vol):
 def cut_parts(he):
     starts = [0]
     for i, h in enumerate(he):
-        if h["kind"] == "h" and SPLIT.match(h["he"]) and i:
+        # the table of contents (Daat file 01) has chapter lines too; it stays one part
+        if h["kind"] == "h" and SPLIT.match(h["he"]) and i and h["start"].split("_")[1] != "01":
             j = i
             while j > 0 and he[j - 1]["kind"] == "h":
                 j -= 1

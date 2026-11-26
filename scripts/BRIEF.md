@@ -60,7 +60,9 @@ second line of footnote 1
 You write English **rows**: one row for every heading and every paragraph that **begins** on your pages, in order.
 Skip the lines at the top of your first page that finish a paragraph from the page before (the previous unit
 translates them). Finish the paragraph that is still open at the end of your last page, reading on into the next page
-(the `[next unit's page]` block and its image) as far as needed. Do the same for footnotes: translate every footnote
+(the `[next unit's page]` block and its image) as far as needed. Some paragraphs run over two or more pages: then read
+the further pages' OCR in `C:\Users\ezrab\Ezra Brandt\Claude\openseforim-scans\kaggle\merged\weiss-v1\STEM.txt` and
+their images in `REPO\data\pages\v1\STEM.png` until the paragraph ends (skip page files that repeat the page before). Do the same for footnotes: translate every footnote
 that begins on your pages, finish one that continues onto the next page, and skip a footnote continuation at the top
 of your first page's footnote block.
 
