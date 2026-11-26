@@ -22,14 +22,23 @@ DOCS = ROOT / "docs"
 e = html.escape
 DAAT = "https://www.daat.ac.il/daat/vl/dorvolume{v}/dorvolume{v}{f}.pdf#page={p}"
 TOK = re.compile(r"\{page:(v(\d)_(\d\d)_(\d\d))\}")
+TOKEN = re.compile(r"\{(v\d_\d\d_\d\d):(\d{1,2}|\*)\}")  # footnote token in the English: {STEM:N}
 
-# part number -> (title, subtitle, list of page files)
-PARTS = {
-    1: ("Book One, chapter 1: The first traces of oral tradition",
-        "The opening of the work: why the Oral Law must be studied historically, and what the earliest sources show",
-        ["v1_02_01", "v1_02_02", "v1_02_03"]),
-}
-PRINTED = {}  # page file -> printed page number (filled from the checked pages' first line '@ N', if any)
+sys.path.insert(0, str(Path(__file__).parent))
+import wtext  # noqa: E402
+
+PARTS = json.loads((ROOT / "data" / "parts.json").read_text(encoding="utf-8"))  # written by scripts/w_assemble.py
+PRINTED = {}  # page file -> printed page number (from the checked pages' first line '@ N')
+VOLS = {}     # volume -> (units, notes) of the whole volume (wtext.parse_volume)
+
+
+def volume(v):
+    if v not in VOLS:
+        units, notes, printed = wtext.parse_volume(wtext.stems_of(v))
+        PRINTED.update(printed)
+        VOLS[v] = (units, notes)
+    return VOLS[v]
+
 
 HEAD = """<!doctype html>
 <html lang="en">
@@ -60,55 +69,6 @@ def read_blocks(path):
     return blocks
 
 
-def parse_pages(stems):
-    """Units (('h'|'p', text)) and footnotes ((page stem, number, text)) of a run of checked pages."""
-    units, notes, para = [], [], []
-    call = re.compile(r"(?<=[א-ת׳״'\")])\s?(\d{1,2})\)")
-    nonlocal_seq = [0]  # the print numbers notes per page; the reader numbers them through the part
-    for stem in stems:
-        local = {}
-        lines = (ROOT / "data" / "he" / f"{stem}.txt").read_text(encoding="utf-8").splitlines()
-        if lines and lines[0].startswith("@"):
-            PRINTED[stem] = lines[0][1:].strip(); lines = lines[1:]
-        body, fn = lines, []
-        if "---" in [l.strip() for l in lines]:
-            k = [l.strip() for l in lines].index("---")
-            body, fn = lines[:k], lines[k + 1:]
-        first = True
-        for l in body:
-            s = l.strip()
-            def num(m):
-                nonlocal_seq[0] += 1; local[m.group(1)] = nonlocal_seq[0]
-                return f"⟦{nonlocal_seq[0]}⟧"
-            s = call.sub(num, s)
-            if first and s:
-                s = f"{{page:{stem}}} " + s
-                first = False
-            if not s:
-                if para:
-                    units.append(("p", " ".join(para))); para = []
-            elif s.lstrip("{}page:v_0123456789 ").startswith("#"):
-                if para:
-                    units.append(("p", " ".join(para))); para = []
-                tok = re.match(r"(\{page:[^}]+\}\s*)?#\s*(.*)", s)
-                units.append(("h", (tok.group(1) or "") + tok.group(2)))
-            else:
-                para.append(s)
-        cur = None
-        for l in fn:
-            s = l.strip()
-            m = re.match(r"^(\d+)\)\s*(.*)", s)
-            if m:
-                if m.group(1) not in local:
-                    sys.exit(f"{stem}: footnote {m.group(1)} has no call in the text")
-                cur = [stem, str(local[m.group(1)]), m.group(2)]; notes.append(cur)
-            elif cur and s:
-                cur[2] += " " + s
-    if para:
-        units.append(("p", " ".join(para)))
-    return units, notes
-
-
 def page_label(stem):
     return PRINTED.get(stem) or str(int(stem.split("_")[2]))
 
@@ -124,21 +84,37 @@ def fmt_he(text, stem_for_calls):
     return re.sub(r"⟦(\d+)⟧", lambda m: f'<sup class="fn"><a href="#fn-{m.group(1)}">{m.group(1)}</a></sup>', out)
 
 
+def italics(text):
+    return re.sub(r"\*([^*\s][^*]*?)\*", r"<i>\1</i>", text)
+
+
 def fmt_en(text):
-    text = e(text, quote=False)
+    text = italics(e(text, quote=False))
     text = re.sub(r"\[([^\]]+)\]", r'<span class="ref">[\1]</span>', text)
     text = re.sub(r"\{(\d{1,2})\}", r'<sup class="fn" id="fnref-\1"><a href="#fn-\1">\1</a></sup>', text)
     return re.sub(r"\s*⚠(\d+)", r' <a class="warn" href="#n\1" id="r\1" title="uncertain rendering">⚠\1</a>', text)
 
 
-def part_page(num):
-    title, subtitle, stems = PARTS[num]
-    units, notes = parse_pages(stems)
-    en = read_blocks(ROOT / "data" / "en" / f"part-{num:02d}.en.txt")
-    fn_en = read_blocks(ROOT / "data" / "en" / f"part-{num:02d}.fn.en.txt")
+def part_page(part):
+    num = part["num"]
+    title, subtitle = part["title"], part["subtitle"]
+    vunits, vnotes = volume(part["vol"])
+    units = [(u["kind"], u["he"]) for u in vunits[part["start"]:part["end"]]]
+    # footnote calls ⟦STEM:N⟧ are numbered through the part in the order of the calls
+    order = {}
+    for _, h in units:
+        for c in re.findall(r"⟦([^⟧]+)⟧", h):
+            order.setdefault(c, len(order) + 1)
+    units = [(k, re.sub(r"⟦([^⟧]+)⟧", lambda m: f"⟦{order[m.group(1)]}⟧", h)) for k, h in units]
+    notes = [(c.split(":")[0], str(n), vnotes[c]) for c, n in order.items()]
+    en = [TOKEN.sub(lambda m: "{" + str(order[m.group(1) + ":" + m.group(2)]) + "}", x)
+          for x in read_blocks(ROOT / "data" / "en" / f"part-{num:02d}.en.txt")]
+    fn_en = [TOKEN.sub(lambda m: "{" + str(order[m.group(1) + ":" + m.group(2)]) + "}", x)
+             for x in read_blocks(ROOT / "data" / "en" / f"part-{num:02d}.fn.en.txt")]
     warn = json.loads((ROOT / "data" / "en" / f"part-{num:02d}.notes.json").read_text(encoding="utf-8"))
     if len(units) != len(en) or len(notes) != len(fn_en):
         sys.exit(f"part {num}: Hebrew {len(units)} units / {len(notes)} footnotes, English {len(en)} / {len(fn_en)}")
+    stems = part["pages"]
     for stem in stems:
         if not (DOCS / "scans" / f"{stem}.jpg").exists():
             sys.exit(f"part {num}: no page image docs/scans/{stem}.jpg; run scripts/make_scans.py")
@@ -154,7 +130,7 @@ def part_page(num):
                     f'<p class="en">{fmt_en(x)}</p><p class="he" lang="he" dir="rtl">{fmt_he(h, None)}</p></div>')
     fnrows = []
     for (stem, n, h), x in zip(notes, fn_en):
-        x = re.sub(r"^\d+\)\s*", "", x)
+        x = re.sub(r"^(v\d_\d\d_\d\d:)?(\d+|\*)\)\s*", "", x)
         fnrows.append(f'<div class="row fnrow" id="fn-{n}" data-label="note {n} (p. {page_label(stem)})"><a class="ln back" href="#fnref-{n}" title="Back to the text">{n}<span aria-hidden="true"> ↩</span></a>'
                       f'<p class="en">{fmt_en(x)} <a class="fnback" href="#fnref-{n}">↩ back to the text</a></p><p class="he" lang="he" dir="rtl">{e(h, quote=False)}'
                       f' <span class="fnpage">(p. {page_label(stem)})</span></p></div>')
@@ -163,14 +139,15 @@ def part_page(num):
         sys.exit(f"part {num}: notes missing for ⚠{sorted(marks - set(warn))}")
     warn_rows = "\n".join(f'<li id="n{k}"><a href="#r{k}">⚠{k}</a> <span lang="he" dir="rtl" class="he-inline">{e(v["he"])}</span>'
                           f' — {e(v["note"], quote=False)}</li>' for k, v in warn.items())
-    pages = ", ".join(page_label(s) for s in stems)
-    page = HEAD.format(title=f"{e(title)} — Weiss, Dor Dor ve-Dorshav") + f"""<header class="chapter">
+    labs = [page_label(s) for s in stems]
+    pages = labs[0] if len(labs) == 1 else f"{labs[0]}–{labs[-1]}"
+    page = HEAD.format(title=f"{e(title.replace('*', ''))} — Weiss, Dor Dor ve-Dorshav") + f"""<header class="chapter">
 <nav class="crumb" aria-label="Parts"><span><a href="index.html">All parts</a> · Part {num}</span></nav>
 <p class="title-he" lang="he" dir="rtl">דור דור ודורשיו</p>
-<h1>{e(title)}</h1>
-<p class="sub">{e(subtitle)}</p>
+<h1>{italics(e(title))}</h1>
+<p class="sub">{italics(e(subtitle))}</p>
 <details class="about"><summary>About this text</summary>
-<p class="meta">Vol. 1, pp. {pages} (Vienna 1871). One row is one heading or one paragraph of the print; Weiss's own
+<p class="meta">Vol. {part["vol"]}, pp. {pages} (Vienna 1871). One row is one heading or one paragraph of the print; Weiss's own
 footnotes follow the text, numbered through the part (the print numbers them page by page). Boxes marked "p. N" in the Hebrew show where a printed page begins; they link to the page in
 the Daat scan, and the <b>Scan</b> button at the top shows it beside the text. References in
 <span class="ref">[gray brackets]</span> are the translator's. <a class="warn" href="#notes">⚠</a> marks an uncertain
@@ -198,9 +175,12 @@ rendering. The Hebrew was checked against the scan line by line; spelling and ab
 
 
 def index_page(counts):
-    rows = "\n".join(f'<tr class="done"><td><a href="part-{k:02d}.html">{k}</a></td><td><a href="part-{k:02d}.html">{e(PARTS[k][0])}</a>: '
-                     f'{e(PARTS[k][1])}</td><td>{", ".join(page_label(s) for s in PARTS[k][2])}</td><td>{counts[k]} units</td></tr>'
-                     for k in sorted(PARTS))
+    def pages(p):
+        labs = [page_label(s) for s in p["pages"]]
+        return labs[0] if len(labs) == 1 else f"{labs[0]}–{labs[-1]}"
+    rows = "\n".join(f'<tr class="done"><td><a href="part-{p["num"]:02d}.html">{p["num"]}</a></td><td><a href="part-{p["num"]:02d}.html">{italics(e(p["title"]))}</a>'
+                     f'{(": " + italics(e(p["subtitle"]))) if p["subtitle"] else ""}</td><td>{p["vol"]}: {pages(p)}</td><td>{counts[p["num"]]} rows</td></tr>'
+                     for p in PARTS)
     page = HEAD.format(title="Weiss, Dor Dor ve-Dorshav: Hebrew and English") + f"""<header>
 <h1>I. H. Weiss, <i>Dor Dor ve-Dorshav</i></h1>
 <p class="sub">The history of the Oral Law, with an English translation paragraph by paragraph · <span lang="he" dir="rtl">דור דור ודורשיו</span></p>
@@ -212,9 +192,9 @@ It is still a standard work, and it has no English translation.</p>
 <h2>Parts</h2>
 <div class="tablewrap">
 <table>
-<tr><th>Part</th><th>Contents</th><th>Pages</th><th>Status</th></tr>
+<tr><th>Part</th><th>Contents</th><th>Vol.: pages</th><th>Size</th></tr>
 {rows}
-<tr><td>2–</td><td>The rest of vol. 1 and vols. 2–5</td><td></td><td>OCR only, not checked or translated</td></tr>
+<tr><td></td><td>Vols. 2–5</td><td></td><td>OCR only, not checked or translated</td></tr>
 </table>
 </div>
 
@@ -262,7 +242,7 @@ def work_json():
 
 def main():
     DOCS.mkdir(exist_ok=True)
-    counts = {k: part_page(k) for k in sorted(PARTS)}
+    counts = {p["num"]: part_page(p) for p in PARTS}
     index_page(counts)
     work_json()
 
